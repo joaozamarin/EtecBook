@@ -1,0 +1,49 @@
+:host-context(body) {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.form-signin {
+  max-width: 400px;
+  padding: 0 15px;
+  text-align: center;
+}
+
+.form-signin .form-floating:focus-within {
+  z-index: 2;
+}
+
+.form-signin input[type="text"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-radius: 0;
+}
+
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.border-text {
+  position: relative;
+  margin-top: 20px;
+  height: 25px;
+  border-top: 1px solid var(--bs-body-color);
+  color: var(--bs-body-color);
+}
+
+.border-text::after {
+  content: "Já Possui uma Conta?";
+  position: absolute;
+  background-color: var(--bs-body-bg);
+  top: -13px;
+  left: 28%;
+  padding: 0 10px;
+}
