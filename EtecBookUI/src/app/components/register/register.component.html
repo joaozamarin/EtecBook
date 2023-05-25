@@ -1,29 +1,34 @@
 <main class="form-signin w-100 m-auto">
-  <form>
+  <form [formGroup]="registroForm">
     <img class="mb-4" src="../../../assets/img/logo.png" alt="" width="150">
     <h2 class="h3 mb-3 fw-normal">EtecBook</h2>
     <h5 class="mb-3 fw-normal ">Criar Conta</h5>
 
     <div class="form-floating mb-2">
-      <input type="text" class="form-control" id="nome" placeholder="Nome">
+      <input formControlName="name" type="text" class="form-control" id="nome" placeholder="Nome" [class.is-invalid]="checkName()">
       <label for="nome">
         <i class='bx bxs-user'></i> Nome
       </label>
+      <span *ngIf="checkName()" class="text-danger text-start d-block mb-1">*Campo Obrigatório</span>
     </div>
     <div class="form-floating mb-2">
-      <input type="email" class="form-control" id="email" placeholder="Email">
+      <input formControlName="email" type="email" class="form-control" id="email" placeholder="Email" [class.is-invalid]="checkEmail() || checkEmailValid()">
       <label for="email">
         <i class='bx bxs-envelope'></i> Email
       </label>
+      <span *ngIf="checkEmail()" class="text-danger text-start d-block ">*Campo Obrigatório</span>
+      <span *ngIf="checkEmailValid()" class="text-danger text-start d-block">*Informe um Email Válido</span>
     </div>
     <div class="form-floating">
-      <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+      <input formControlName="password" type="password" class="form-control" id="floatingPassword" placeholder="Password" [class.is-invalid]="checkPassword() || checkPasswordLength()" style="margin: 0;">
       <label for="floatingPassword">
         <i class='bx bxs-key'></i> Senha
       </label>
+      <span *ngIf="checkPassword()" class="text-danger text-start d-block">*Campo Obrigatório</span>
+      <span *ngIf="checkPasswordLength()" class="text-danger text-start d-block">*Digite, no mínimo, 6 caracteres</span>
     </div>
 
-    <button class="w-100 btn btn-lg btn-primary my-2" type="submit">Registrar</button>
+    <button (click)="onSubmit()" class="w-100 btn btn-lg btn-primary my-2" type="submit">Registrar</button>
 
     <div class="border-text"></div>
 
